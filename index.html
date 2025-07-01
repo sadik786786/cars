@@ -251,6 +251,7 @@
             align-items: flex-start;
             padding: 20px;
             list-style: none;
+            transition: var(--transition);
         }
         
         .nav-links.active {
@@ -315,6 +316,35 @@
             cursor: pointer;
             z-index: 1001;
             padding: 5px;
+        }
+        
+        /* About Intro Section */
+        .about-intro {
+            background-color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .about-intro .container {
+            max-width: 800px;
+        }
+        
+        .about-intro h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .about-intro p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .about-intro .highlight {
+            color: var(--primary);
+            font-weight: 600;
         }
         
         /* Vehicles Section */
@@ -605,6 +635,23 @@
             .footer-container {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            /* Center logo in mobile view */
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .mobile-menu-btn {
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            
+            .logo {
+                margin: 0 auto;
+            }
         }
         
         /* Desktop View */
@@ -616,6 +663,11 @@
             
             .mobile-menu-btn {
                 display: none;
+            }
+            
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
             }
             
             .nav-links {
@@ -708,6 +760,15 @@
                 right: 30px;
                 font-size: 1rem;
             }
+            
+            /* About Intro Section */
+            .about-intro h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-intro p {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -715,10 +776,10 @@
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <a href="#hero" class="logo"><img src="img/logo.jpg" alt="SVROOM Logo" id="logo"></a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
+            <a href="#hero" class="logo"><img src="img/logo.jpg" alt="SVROOM Logo" id="logo"></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#hero">Home</a></li>
                 <li class="dropdown">
@@ -763,6 +824,15 @@
                     <i class="fas fa-phone"></i> Call Now
                 </a>
             </div>
+        </div>
+    </section>
+
+    <!-- About Intro Section -->
+    <section class="about-intro">
+        <div class="container">
+            <h2>Welcome to Svroom Automotive</h2>
+            <p><span class="highlight">Where Passion Drives Our Profession.</span> We're a unique firm that blends the thrill of the automotive world with the stability of real estate.</p>
+            <p>We specialize in sourcing new vehicles, guiding clients through real estate transactions, and capturing life's moments through photography. Our mission is to provide exceptional service across all these areas, combining our expertise to deliver comprehensive solutions for our clients.</p>
         </div>
     </section>
 
