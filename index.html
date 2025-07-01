@@ -36,9 +36,9 @@
         }
         
         #logo {
-            height: 60px;
+            height: 50px;
             width: auto;
-            max-width: 250px;
+            max-width: 200px;
         }
         
         /* Typography */
@@ -64,7 +64,7 @@
         /* Buttons */
         .btn {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 12px 30px;
             border-radius: 50px;
             font-weight: 600;
             text-transform: uppercase;
@@ -73,6 +73,7 @@
             text-align: center;
             cursor: pointer;
             border: 2px solid transparent;
+            font-size: 0.9rem;
         }
         
         .btn-primary {
@@ -100,25 +101,54 @@
             transform: translateY(-5px);
         }
         
+        .btn-call {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+        }
+        
+        .btn-call:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-call i {
+            font-size: 1rem;
+        }
+        
         /* Layout */
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
         section {
-            padding: 80px 0;
+            padding: 60px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: var(--secondary);
             margin-bottom: 15px;
             position: relative;
@@ -140,6 +170,7 @@
             color: var(--text-light);
             max-width: 700px;
             margin: 0 auto;
+            font-size: 0.9rem;
         }
         
         /* Hero Section */
@@ -149,7 +180,7 @@
             background-position: center;
             background-attachment: fixed;
             height: 100vh;
-            min-height: 600px;
+            min-height: 500px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -157,12 +188,12 @@
             text-align: center;
             color: var(--white);
             position: relative;
-            padding-top: 80px;
+            padding-top: 70px;
         }
         
         .hero-content {
             max-width: 800px;
-            padding: 0 20px;
+            padding: 0 15px;
             animation: fadeIn 1.5s ease-in-out;
         }
         
@@ -172,29 +203,29 @@
         }
         
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             font-weight: 900;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
         
         .hero p {
-            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-size: 1.1rem;
             margin-bottom: 2rem;
             font-weight: 300;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
         
-        /* Navigation */
+        /* Navigation - Mobile First */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 12px 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
             transition: var(--transition);
@@ -209,78 +240,81 @@
         }
         
         .nav-links {
-            display: flex;
+            position: fixed;
+            top: 70px;
+            left: -100%;
+            width: 85%;
+            max-width: 300px;
+            height: calc(100vh - 70px);
+            background-color: var(--secondary);
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
             list-style: none;
-            align-items: center;
+        }
+        
+        .nav-links.active {
+            left: 0;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
         }
         
         .nav-links li {
-            margin-left: 25px;
-            position: relative;
+            margin: 12px 0;
+            width: 100%;
         }
         
         .nav-links a {
-            color: var(--black);
-            font-weight: 500;
+            color: var(--white);
+            width: 100%;
+            padding: 10px 0;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            padding: 5px 0;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .nav-links i.fas {
-            margin-left: 5px;
-            font-size: 0.8rem;
-        }
-        
-        .dropdown {
-            position: relative;
+            font-weight: 500;
         }
         
         .dropdown-content {
             display: none;
-            position: absolute;
-            background-color: var(--white);
-            min-width: 200px;
-            box-shadow: var(--shadow-hover);
-            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin-top: 10px;
             border-radius: 5px;
-            top: 100%;
-            left: 0;
-            opacity: 0;
-            transform: translateY(10px);
+            padding: 0 15px;
             transition: var(--transition);
         }
         
-        .dropdown:hover .dropdown-content {
+        .dropdown.active .dropdown-content {
             display: block;
-            opacity: 1;
-            transform: translateY(0);
         }
         
         .dropdown-content a {
-            color: var(--secondary);
-            padding: 12px 16px;
-            display: block;
+            color: var(--white);
+            padding: 10px 0;
+            opacity: 0.9;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        .dropdown-content a:last-child {
+            border-bottom: none;
         }
         
         .dropdown-content a:hover {
-            background-color: var(--accent);
-            color: var(--secondary);
-            padding-left: 20px;
+            background-color: transparent;
+            color: var(--white);
+            opacity: 1;
+            padding-left: 10px;
         }
         
         .mobile-menu-btn {
-            display: none;
+            display: block;
             background: none;
             border: none;
             color: var(--black);
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 1001;
+            padding: 5px;
         }
         
         /* Vehicles Section */
@@ -293,8 +327,8 @@
         
         .vehicle-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 25px;
         }
         
         .vehicle-card {
@@ -306,12 +340,12 @@
         }
         
         .vehicle-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
         }
         
         .vehicle-img {
-            height: 250px;
+            height: 200px;
             overflow: hidden;
         }
         
@@ -327,36 +361,38 @@
         }
         
         .vehicle-info {
-            padding: 25px;
+            padding: 20px;
         }
         
         .vehicle-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
             color: var(--secondary);
         }
         
         .vehicle-info p {
             color: var(--text-light);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
         }
         
         .vehicle-info ul {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--text-light);
         }
         
         .vehicle-info li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             list-style-type: none;
             position: relative;
             padding-left: 20px;
+            font-size: 0.85rem;
         }
         
         .vehicle-info li:before {
             content: "•";
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1rem;
             position: absolute;
             left: 0;
             top: -2px;
@@ -365,35 +401,35 @@
         /* Services Section */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
         
         .service-card {
             background-color: var(--white);
             border-radius: 10px;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
         }
         
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
         }
         
         .service-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background-color: var(--accent);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
             color: var(--secondary);
-            font-size: 2rem;
+            font-size: 1.5rem;
             transition: var(--transition);
         }
         
@@ -404,13 +440,14 @@
         }
         
         .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
             color: var(--secondary);
         }
         
         .service-card p {
             color: var(--text-light);
+            font-size: 0.9rem;
         }
         
         /* CTA Section */
@@ -420,18 +457,20 @@
             background-position: center;
             background-attachment: fixed;
             text-align: center;
-            color: var(--white);
-            padding: 100px 20px;
+            color: var(--light);
+            padding: 80px 15px;
         }
         
         .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 15px;
         }
         
         .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            color: #fff;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
@@ -442,27 +481,27 @@
         footer {
             background-color: var(--secondary);
             color: var(--white);
-            padding: 60px 0 20px;
+            padding: 50px 0 20px;
         }
         
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
         }
         
         .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
         
         .footer-col h3::after {
             content: '';
             position: absolute;
-            width: 50px;
+            width: 40px;
             height: 2px;
             background-color: var(--primary);
             bottom: 0;
@@ -470,8 +509,9 @@
         }
         
         .footer-col p {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             opacity: 0.8;
+            font-size: 0.9rem;
         }
         
         .footer-links {
@@ -479,13 +519,14 @@
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .footer-links a {
             color: var(--white);
             opacity: 0.8;
             display: block;
+            font-size: 0.9rem;
         }
         
         .footer-links a:hover {
@@ -495,9 +536,10 @@
         }
         
         .contact-info {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             align-items: flex-start;
+            font-size: 0.9rem;
         }
         
         .contact-info i {
@@ -507,20 +549,21 @@
         
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 15px;
         }
         
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             color: var(--white);
             transition: var(--transition);
+            font-size: 0.9rem;
         }
         
         .social-links a:hover {
@@ -530,136 +573,140 @@
         
         .copyright {
             text-align: center;
-            padding-top: 40px;
-            margin-top: 40px;
+            padding-top: 30px;
+            margin-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             opacity: 0.7;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .nav-links li {
-                margin-left: 15px;
+        /* Tablet View */
+        @media (min-width: 576px) {
+            .container {
+                padding: 0 20px;
             }
             
             .hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            .vehicle-grid, .services-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 80%;
-                max-width: 300px;
-                height: 100vh;
-                background-color: var(--secondary);
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 80px 30px 30px;
-                transition: var(--transition);
-                z-index: 1000;
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-                width: 100%;
-            }
-            
-            .nav-links a {
-                color: var(--white);
-                width: 100%;
-                padding: 10px 0;
-            }
-            
-            .dropdown-content {
-                position: static;
-                box-shadow: none;
-                display: none;
-                opacity: 1;
-                transform: none;
-                background-color: transparent;
-                width: 100%;
-                margin-top: 10px;
-            }
-            
-            .dropdown-content a {
-                color: var(--white);
-                padding: 8px 0 8px 20px;
-                opacity: 0.8;
-            }
-            
-            .dropdown:hover .dropdown-content {
-                display: none;
-            }
-            
-            .dropdown.active .dropdown-content {
-                display: block;
-            }
-            
-            .hero {
-                padding-top: 70px;
-                min-height: 500px;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .cta-section {
-                padding: 80px 20px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            #logo {
-                height: 50px;
-                margin-left: 30px;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             
             .btn {
-                padding: 12px 30px;
-                font-size: 0.9rem;
+                padding: 12px 35px;
             }
             
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .section-title p {
-                font-size: 0.9rem;
-            }
-            
-            .vehicle-info, .service-card {
-                padding: 20px;
+            .vehicle-grid, .services-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .footer-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Desktop View */
+        @media (min-width: 992px) {
+            #logo {
+                height: 60px;
+                max-width: 250px;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .nav-links {
+                position: static;
+                width: auto;
+                height: auto;
+                background-color: transparent;
+                flex-direction: row;
+                display: flex;
+                padding: 0;
+                box-shadow: none;
+            }
+            
+            .nav-links li {
+                margin: 0 0 0 20px;
+                width: auto;
+            }
+            
+            .nav-links a {
+                color: var(--black);
+                padding: 5px 0;
+                justify-content: flex-start;
+            }
+            
+            .dropdown-content {
+                position: absolute;
+                background-color: var(--white);
+                min-width: 200px;
+                box-shadow: var(--shadow-hover);
+                z-index: 1;
+                border-radius: 5px;
+                top: 100%;
+                left: 0;
+                opacity: 0;
+                transform: translateY(10px);
+                transition: var(--transition);
+                display: none;
+                padding: 0;
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: block;
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .dropdown-content a {
+                color: var(--secondary);
+                padding: 12px 16px;
+                opacity: 1;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+            
+            .dropdown-content a:hover {
+                background-color: var(--accent);
+                color: var(--secondary);
+                padding-left: 20px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title p {
+                font-size: 1rem;
+            }
+            
+            .vehicle-grid {
+                grid-template-columns: repeat(3, 1fr);
                 gap: 30px;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 30px;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 40px;
+            }
+            
+            .btn-call {
+                padding: 12px 25px;
+                bottom: 30px;
+                right: 30px;
+                font-size: 1rem;
             }
         }
     </style>
@@ -689,7 +736,7 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#"> Properties <i class="fas fa-chevron-down"></i></a>
+                    <a href="#">Properties <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content">
                         <a href="#">Transportation</a>
                         <a href="#">Service/Maintenance</a>
@@ -699,7 +746,7 @@
                     </div>
                 </li>
                 <li><a href="#">Horses</a></li>
-                <li><a href="#">merchandise</a></li>
+                <li><a href="#">Merchandise</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -710,7 +757,12 @@
         <div class="hero-content">
             <h1>Premium Cars & Services</h1>
             <p>Discover the finest selection of vehicles and comprehensive automotive services</p>
-            <a href="#" class="btn btn-primary">Explore Now</a>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="#vehicles" class="btn btn-primary">Explore Now</a>
+                <a href="tel:+917069827253" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
         </div>
     </section>
 
@@ -718,7 +770,7 @@
     <section class="vehicles" id="vehicles">
         <div class="container">
             <div class="section-title">
-                <h2>Featured Vehicles</h2>
+                <h2 style="color: #fff;">Featured Vehicles</h2>
                 <p style="color: #fff;">Browse our exclusive collection of premium vehicles</p>
             </div>
             <div class="vehicle-grid">
@@ -736,7 +788,9 @@
                             <li>Powerful 2.0L mStallion Turbo Petrol Engine</li>
                             <li>6-Speed Automatic Transmission</li>
                         </ul>
-                        <a href="#" class="btn btn-secondary">Get now</a>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <a href="#" class="btn btn-secondary">Get now</a>
+                        </div>
                     </div>
                 </div>
                 <div class="vehicle-card">
@@ -757,7 +811,9 @@
                             <li>10.25-inch Dual HD Screens</li>
                             <li>7-Seater Luxury Cabin</li>
                         </ul>
-                        <a href="#" class="btn btn-secondary">Get now</a>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <a href="#" class="btn btn-secondary">Get now</a>
+                        </div>
                     </div>
                 </div>
                 <div class="vehicle-card">
@@ -775,7 +831,9 @@
                             <li>8-inch Touchscreen Infotainment</li>
                             <li>6 Airbags & ESP</li>
                         </ul>
-                        <a href="#" class="btn btn-secondary">Get now</a>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <a href="#" class="btn btn-secondary">Get now</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -783,7 +841,7 @@
     </section>
 
     <!-- Services Section -->
-    <section class="services">
+    <section class="services" id="services">
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
@@ -835,7 +893,12 @@
             <div class="section-title">
                 <h2>Ready to Find Your Dream Car?</h2>
                 <p>Contact us today to schedule a test drive or learn more about our services</p>
-                <a href="#" class="btn btn-primary">Get In Touch</a>
+                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="tel:+917069827253" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -901,6 +964,11 @@
         </div>
     </footer>
 
+    <!-- Floating Call Button -->
+    <a href="tel:+917069827253" class="btn-call">
+        <i class="fas fa-phone"></i> Call Now
+    </a>
+
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -911,6 +979,13 @@
             navLinks.classList.toggle('active');
             mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            
+            // Close all dropdowns when menu is closed
+            if (!navLinks.classList.contains('active')) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
         });
         
         // Mobile Dropdown Toggle
@@ -918,7 +993,7 @@
             const link = dropdown.querySelector('a');
             
             link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
+                if (window.innerWidth <= 992) {
                     e.preventDefault();
                     dropdown.classList.toggle('active');
                     
@@ -934,7 +1009,9 @@
         
         // Close menu when clicking outside on mobile
         document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768 && !e.target.closest('.nav-container')) {
+            if (window.innerWidth <= 992 && 
+                !e.target.closest('.nav-container') && 
+                navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 dropdowns.forEach(dropdown => {
@@ -954,7 +1031,7 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 70,
                         behavior: 'smooth'
                     });
                     
@@ -962,6 +1039,9 @@
                     if (navLinks.classList.contains('active')) {
                         navLinks.classList.remove('active');
                         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        dropdowns.forEach(dropdown => {
+                            dropdown.classList.remove('active');
+                        });
                     }
                 }
             });
@@ -972,7 +1052,7 @@
             if (window.scrollY > 50) {
                 document.querySelector('nav').style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
             } else {
-                document.querySelector('nav').style.boxShadow = 'none';
+                document.querySelector('nav').style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             }
         });
     </script>
